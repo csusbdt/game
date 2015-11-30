@@ -1,51 +1,51 @@
 local textures  = require('res.textures')
 local anim      = require('eng.anim')
 local input     = require('eng.input')
-local camera    = require('eng.camera')
 
 local sprite = textures.image('player/kurock-wolf.png')
 
 local idlefront = anim.create()
-idlefront:addframe{ sprite = sprite, x = 0, y = 0, w = 77, h = 93, t = 8 }
+idlefront:addframe{ sprite = sprite, x = 0, y = 0, w = 80, h = 120, t = 8 }
 
 local idleback = anim.create()
-idleback:addframe{ sprite = sprite, x = 0, y = 93, w = 77, h = 93, t = 8 }
+idleback:addframe{ sprite = sprite, x = 0, y = 120, w = 80, h = 120, t = 8 }
 
 local idleleft = anim.create()
-idleleft:addframe{ sprite = sprite, x = 0, y = 279, w = 77, h = 93, t = 8 }
+idleleft:addframe{ sprite = sprite, x = 0, y = 360, w = 80, h = 120, t = 8 }
 
 local idleright = anim.create()
-idleright:addframe{ sprite = sprite, x = 0, y = 186, w = 77, h = 93, t = 8 }
+idleright:addframe{ sprite = sprite, x = 0, y = 240, w = 80, h = 120, t = 8 }
 
 local walkleft = anim.create()
-walkleft:addframe{ sprite = sprite, x =   0, y = 279, w = 77, h = 93, t = 8 }
-walkleft:addframe{ sprite = sprite, x =  77, y = 279, w = 77, h = 93, t = 8 }
-walkleft:addframe{ sprite = sprite, x = 154, y = 279, w = 77, h = 93, t = 8 }
+walkleft:addframe{ sprite = sprite, x =   0, y = 360, w = 80, h = 120, t = 8 }
+walkleft:addframe{ sprite = sprite, x =  80, y = 360, w = 80, h = 120, t = 8 }
+walkleft:addframe{ sprite = sprite, x = 160, y = 360, w = 80, h = 120, t = 8 }
 
 local walkright = anim.create()
-walkright:addframe{ sprite = sprite, x =   0, y = 186, w = 77, h = 93, t = 8 }
-walkright:addframe{ sprite = sprite, x =  77, y = 186, w = 77, h = 93, t = 8 }
-walkright:addframe{ sprite = sprite, x = 154, y = 186, w = 77, h = 93, t = 8 }
+walkright:addframe{ sprite = sprite, x =   0, y = 240, w = 80, h = 120, t = 8 }
+walkright:addframe{ sprite = sprite, x =  80, y = 240, w = 80, h = 120, t = 8 }
+walkright:addframe{ sprite = sprite, x = 160, y = 240, w = 80, h = 120, t = 8 }
 
 local walkfront = anim.create()
-walkfront:addframe{ sprite = sprite, x =   0, y = 0, w = 77, h = 93, t = 8 }
-walkfront:addframe{ sprite = sprite, x =  77, y = 0, w = 77, h = 93, t = 8 }
-walkfront:addframe{ sprite = sprite, x = 154, y = 0, w = 77, h = 93, t = 8 }
+walkfront:addframe{ sprite = sprite, x =   0, y = 0, w = 80, h = 120, t = 8 }
+walkfront:addframe{ sprite = sprite, x =  80, y = 0, w = 80, h = 120, t = 8 }
+walkfront:addframe{ sprite = sprite, x = 160, y = 0, w = 80, h = 120, t = 8 }
 
 local walkback = anim.create()
-walkback:addframe{ sprite = sprite, x =   0, y = 93, w = 77, h = 93, t = 8 }
-walkback:addframe{ sprite = sprite, x =  77, y = 93, w = 77, h = 93, t = 8 }
-walkback:addframe{ sprite = sprite, x = 154, y = 93, w = 77, h = 93, t = 8 }
+walkback:addframe{ sprite = sprite, x =   0, y = 120, w = 80, h = 120, t = 8 }
+walkback:addframe{ sprite = sprite, x =  80, y = 120, w = 80, h = 120, t = 8 }
+walkback:addframe{ sprite = sprite, x = 160, y = 120, w = 80, h = 120, t = 8 }
 
 local player_mt = {
 	x = 100, y = 100,
-	x_speed = 2, y_speed = 2
+	w = 0, y = 0,
+	x_speed = 6, y_speed = 6
 }
 player_mt.__index = player_mt
 
 function player_mt:intersects(o)
-	return 	o.x < self.x + 38 and self.x + 38 < o.x + o.w and 
-		o.y < self.y + 46 and self.y + 46 < o.y + o.h 
+	return 	o.x < self.x + self.w / 2 and self.x + self.w / 2 < o.x + o.w and 
+		o.y < self.y + self.h / 2 and self.y + self.h / 2 < o.y + o.h 
 end
 
 function player_mt:update()
@@ -71,19 +71,17 @@ function player_mt:update()
 	elseif self.anim == self.walkfront then self.anim = self.idlefront end
 	self.y = self.y + dy
 	self.x = self.x + dx
-
-	camera:include(self.x, self.y)
 end
 
 function player_mt:draw()
-	self.anim(self.x - self.w / 2, self.y - self.h / 2)
+	self.anim(math.tointeger(window_width / 2 - self.w / 2), math.tointeger(window_height / 2 - self.h / 2))
 end
 
 local function create(o)
 	local o = o or {}
 	setmetatable(o, player_mt)
-	o.h = 93
-	o.w = 77
+	o.h = 120
+	o.w = 80
 	o.idleleft  = idleleft:loop()
 	o.idleright = idleright:loop()
 	o.idlefront = idlefront:loop()

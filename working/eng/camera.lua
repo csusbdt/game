@@ -1,11 +1,11 @@
 local camera = {
-	x = window_width / 2,
-	y = window_height / 2
+	x = math.tointeger(window_width / 2),
+	y = math.tointeger(window_height / 2)
 }
 
-camera.include = function(x0, y0)
-	x = x0
-	y = y0
+camera.include = function(x, y)
+	camera.x = x
+	camera.y = y
 end
 
 return camera
