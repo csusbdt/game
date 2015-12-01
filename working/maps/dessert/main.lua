@@ -17,6 +17,8 @@ local function draw_objs()
 	for i = 1, #objs do objs[i]:draw() end
 end
 
+local dot = require('objs.dot').create{x = 300, y = 300}
+add_obj(dot);
 
 function on_enter_down()
 end

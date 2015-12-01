@@ -6,6 +6,12 @@ local camera = {
 camera.include = function(x, y)
 	camera.x = x
 	camera.y = y
+	camera.dx = x - 512
+	camera.dy = y - 388
+end
+
+camera.screen = function(x, y)
+	return x - camera.dx, y - camera.dy
 end
 
 return camera

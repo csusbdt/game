@@ -27,7 +27,7 @@ anim_mt:addframe()
 
 function anim_mt:draw(frame_index, x, y)
 	if frame_index > #self.frames then mdgbox('Invalid frame index') end
-	self.frames[frame_index]:draw(x, y)
+	self.frames[frame_index]:draw(x - w / 2, y - h / 2)
 end
 
 function anim_mt:loop()
