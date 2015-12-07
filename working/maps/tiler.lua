@@ -9,8 +9,8 @@ function tiler_mt:draw(camera)
 	local th = self.t.h
 
 	-- Find the upper left point of the tile containing the camera.
-	local left = math.modf(camera.x / tw)
-	local top  = math.modf(camera.y / th)
+	local left = math.modf(camera.x / tw) * tw
+	local top  = math.modf(camera.y / th) * th
 	local x, y = camera:screen(left, top)
 	self.t:draw(x - tw, y - th)
 	self.t:draw(x - tw, y)

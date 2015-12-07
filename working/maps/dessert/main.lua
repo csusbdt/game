@@ -7,8 +7,8 @@ local sand    = textures.image('maps/dessert/sand.png')
 local tiler   = require('maps.tiler').create(sand)
 local player  = require('player/main').create{x = 200, y = 200}
 
-local world_width  = window_width  * 2
-local world_height = window_height * 2
+local world_width  = window_width  * 3
+local world_height = window_height * 3
 local camera = require('eng.camera').create(world_width, world_height)
 
 local objs = {}
