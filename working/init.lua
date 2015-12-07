@@ -22,6 +22,6 @@ print('resource_dir = ' .. resource_dir)
 print('save_dir = ' .. save_dir)
 print('path_separator = ' .. path_separator)
 
-dofile('screens/title/main.lua')
---dofile('screens/room.lua')
+--dofile('screens/title/main.lua')
+dofile('maps/dessert/main.lua')
 

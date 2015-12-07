@@ -43,10 +43,10 @@ local player_mt = {
 }
 player_mt.__index = player_mt
 
-function player_mt:intersects(o)
-	return 	o.x < self.x + self.w / 2 and self.x + self.w / 2 < o.x + o.w and 
-		o.y < self.y + self.h / 2 and self.y + self.h / 2 < o.y + o.h 
-end
+--function player_mt:intersects(o)
+--	return 	o.x < self.x + self.w / 2 and self.x + self.w / 2 < o.x + o.w and 
+--		o.y < self.y + self.h / 2 and self.y + self.h / 2 < o.y + o.h 
+--end
 
 function player_mt:update()
 	local dx = 0
@@ -73,8 +73,9 @@ function player_mt:update()
 	self.x = self.x + dx
 end
 
-function player_mt:draw()
-	self.anim(math.tointeger(window_width / 2 - self.w / 2), math.tointeger(window_height / 2 - self.h / 2))
+function player_mt:draw(camera)
+	local x, y = camera:screen(self.x, self.y)
+	self.anim(x, y)
 end
 
 local function create(o)
