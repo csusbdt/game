@@ -1,5 +1,6 @@
 local textures  = require('res.textures')
 local anim      = require('eng.anim')
+local camera    = require('eng.camera')
 
 local sprite = textures.image('objs/dot.png')
 
@@ -17,8 +18,8 @@ local dot_mt = {
 }
 dot_mt.__index = dot_mt
 
-function dot_mt:draw(camera)
-	local x, y = camera:screen(self.x, self.y)
+function dot_mt:draw()
+	local x, y = camera.screen(self.x, self.y)
 	self.loop(x, y)
 end
 

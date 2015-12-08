@@ -1,4 +1,5 @@
 local textures = require('res.textures')
+local camera   = require('eng.camera')
 
 local object_mt = {
 	x  = 100,
@@ -7,8 +8,8 @@ local object_mt = {
 }
 object_mt.__index = object_mt
 
-function object_mt:draw(camera)
-	local x, y = camera:screen(self.x, self.y)
+function object_mt:draw()
+	local x, y = camera.screen(self.x, self.y)
 	self.t:draw(self.tx, self.ty, self.tw, self.th, x - self.tw / 2, y - self.th / 2)
 end
 

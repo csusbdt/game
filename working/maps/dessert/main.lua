@@ -1,15 +1,18 @@
-local textures       = require('res.textures')
-local buttons        = require('eng.buttons')
-local hud            = require('hud.main')
-local object_factory = require('maps.dessert.objs')
+local textures    = require('res.textures')
+local buttons     = require('eng.buttons')
+local hud         = require('hud.main')
+local obj_factory = require('maps.dessert.objs')
+local camera      = require('eng.camera')
 
 local sand    = textures.image('maps/dessert/sand.png')
 local tiler   = require('maps.tiler').create(sand)
-local player  = require('player/main').create{x = 200, y = 200}
+local player  = require('player/wolf/main')
+player.x = 200
+player.y = 200
 
 local world_width  = window_width  * 3
 local world_height = window_height * 3
-local camera = require('eng.camera').create(world_width, world_height)
+camera.config(world_width, world_height)
 
 local objs = {}
 
@@ -18,17 +21,17 @@ local function add_obj(o)
 end
 
 local function draw_objs()
-	for i = 1, #objs do objs[i]:draw(camera) end
+	for i = 1, #objs do objs[i]:draw() end
 end
 
-local b1  = object_factory.create_bolder1{x =  50, y = 200}
-local b2  = object_factory.create_bolder2{x = 100, y = 200}
-local b3  = object_factory.create_bolder3{x = 200, y = 200}
-local b4  = object_factory.create_bolder4{x = 300, y = 200}
-local b5  = object_factory.create_bolder2{x = 400, y = 200}
-local c1  = object_factory.create_cactus1{x =  50, y = 400}
-local c2  = object_factory.create_cactus2{x = 100, y = 400}
-local s1  = object_factory.create_shrub1{x = 200, y = 400}
+local b1  = obj_factory.create_bolder1{x =  50, y = 200}
+local b2  = obj_factory.create_bolder2{x = 100, y = 200}
+local b3  = obj_factory.create_bolder3{x = 200, y = 200}
+local b4  = obj_factory.create_bolder4{x = 300, y = 200}
+local b5  = obj_factory.create_bolder2{x = 400, y = 200}
+local c1  = obj_factory.create_cactus1{x =  50, y = 400}
+local c2  = obj_factory.create_cactus2{x = 100, y = 400}
+local s1  = obj_factory.create_shrub1{x = 200, y = 400}
 local dot = require('objs.dot').create{x = 300, y = 300}
 add_obj(b1);
 add_obj(b2);
@@ -55,9 +58,9 @@ end
 function draw()
 	set_draw_color(25, 25, 25, 255)
 	render_clear()
-	tiler:draw(camera)
+	tiler:draw()
 	draw_objs()
-	player:draw(camera)
+	player:draw()
 	hud.draw()
 	render()
 end
@@ -68,7 +71,7 @@ function on_update()
 	if player.y < 0            then player.y = 0            end
 	if player.x > world_width  - player.w then player.x = world_width  - player.w end
 	if player.y > world_height - player.h then player.y = world_height - player.h end
-	camera:lookat(player.x, player.y)
+	camera.lookat(player.x, player.y)
 	draw()
 end
 
