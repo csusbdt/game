@@ -1,8 +1,8 @@
-local textures    = require('res.textures')
-local buttons     = require('eng.buttons')
-local hud         = require('hud.main')
-local obj_factory = require('maps.dessert.objs')
-local camera      = require('eng.camera')
+local textures  = require('res.textures')
+local buttons   = require('eng.buttons')
+local hud       = require('hud.main')
+local of        = require('maps.dessert.obj_factory')
+local camera    = require('eng.camera')
 
 local sand    = textures.image('maps/dessert/sand.png')
 local tiler   = require('maps.tiler').create(sand)
@@ -24,14 +24,14 @@ local function draw_objs()
 	for i = 1, #objs do objs[i]:draw() end
 end
 
-local b1  = obj_factory.create_bolder1{x =  50, y = 200}
-local b2  = obj_factory.create_bolder2{x = 100, y = 200}
-local b3  = obj_factory.create_bolder3{x = 200, y = 200}
-local b4  = obj_factory.create_bolder4{x = 300, y = 200}
-local b5  = obj_factory.create_bolder2{x = 400, y = 200}
-local c1  = obj_factory.create_cactus1{x =  50, y = 400}
-local c2  = obj_factory.create_cactus2{x = 100, y = 400}
-local s1  = obj_factory.create_shrub1{x = 200, y = 400}
+local b1  = of.create_bolder1{x =  50, y = 200}
+local b2  = of.create_bolder2{x = 100, y = 200}
+local b3  = of.create_bolder3{x = 200, y = 200}
+local b4  = of.create_bolder4{x = 300, y = 200}
+local b5  = of.create_bolder2{x = 400, y = 200}
+local c1  = of.create_cactus1{x =  50, y = 400}
+local c2  = of.create_cactus2{x = 100, y = 400}
+local s1  = of.create_shrub1{x = 200, y = 400}
 local dot = require('objs.dot').create{x = 300, y = 300}
 add_obj(b1);
 add_obj(b2);
