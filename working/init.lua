@@ -23,5 +23,8 @@ print('save_dir = ' .. save_dir)
 print('path_separator = ' .. path_separator)
 
 --dofile('screens/title/main.lua')
-dofile('maps/dessert/main.lua')
+--dofile('maps/dessert/main.lua')
+
+local dessert = require('maps/dessert/main')
+dessert:enter()
 

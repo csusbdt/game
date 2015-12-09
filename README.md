@@ -1,11 +1,10 @@
 ## Patterns
 
-* FACTORY modules (Have one or more create methods.)
-* SINGLETON modules (Can be standalone or instance of factory.)
+* FACTORY modules have one or more create methods.
+* SINGLETON modules 
 
 ## Resource modules
 
-* Manage resource instances.
 * res.textures  FACTORY
 * res.fonts     FACTORY
 * res.music     FACTORY
@@ -14,11 +13,12 @@
 
 ## Utility modules
 
+* util.anim_factory  
+
 * util.savefile  SINGLETON   ************* Rename "eng" to "util". *****************
 * util.camera    SINGLETON
 * util.input     SINGLETON
 * util.buttons   FACTORY
-* util.anim      FACTORY
 
 ## UI modules
 
@@ -28,7 +28,7 @@
 
 * maps.factory       FACTORY     ******************* Create this. **********************
 * maps.dessert.main  SINGLETON   ************** Merge with objs and call it "maps.dessert" ***********
-* maps.dessert.objs  SINGLETON   ***** merge *****
+* maps.dessert.obj_factory  
 
 ## Player modules
 
