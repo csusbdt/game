@@ -1,5 +1,4 @@
 local input     = require('eng.input')
-	inim      = idlefront
 local camera    = require('eng.camera')
 
 local player_mt = {
@@ -11,11 +10,6 @@ local player_mt = {
 	y_speed = 6
 }
 player_mt.__index = player_mt
-
---function player_mt:intersects(o)
---	return 	o.x < self.x + self.w / 2 and self.x + self.w / 2 < o.x + o.w and 
---		o.y < self.y + self.h / 2 and self.y + self.h / 2 < o.y + o.h 
---end
 
 function player_mt:update()
 	local dx = 0
@@ -48,7 +42,6 @@ function player_mt:draw()
 end
 
 local function create(o)
-	local o = o or {}
 	setmetatable(o, player_mt)
 	o.anim = o.idlefront
 	return o
