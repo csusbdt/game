@@ -1,85 +1,76 @@
 local textures = require('res.textures')
 local camera   = require('eng.camera')
+local obj_mt   = require('maps.obj_mt')
 
-local object_mt = {
-	x  = 100,
-	y  = 100,
-	t  = textures.image('maps/dessert/objs.png')
-}
-object_mt.__index = object_mt
-
-function object_mt:draw()
-	local x, y = camera.screen(self.x, self.y)
-	self.t:draw(self.tx, self.ty, self.tw, self.th, x - self.tw / 2, y - self.th / 2)
-end
+local t = textures.image('maps/dessert/objs.png')
 
 local function create_bolder1(o)
-	o = o or {}
+	o.t = t
 	o.tx = 0
 	o.ty = 23
 	o.tw = 136
 	o.th = 110
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_bolder2(o)
-	o = o or {}
+	o.t = t
 	o.tx = 0
 	o.ty = 199
 	o.tw = 136
 	o.th = 63
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_bolder3(o)
-	o = o or {}
+	o.t = t
 	o.tx = 0
 	o.ty = 320
 	o.tw = 269
 	o.th = 206
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_bolder4(o)
-	o = o or {}
+	o.t = t
 	o.tx = 267
 	o.ty = 412
 	o.tw = 250
 	o.th = 111
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_cactus1(o)
-	o = o or {}
+	o.t = t
 	o.tx = 140
 	o.ty = 156
 	o.tw = 105
 	o.th = 107
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_cactus2(o)
-	o = o or {}
+	o.t = t
 	o.tx = 150
 	o.ty = 84
 	o.tw = 92
 	o.th = 49
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 
 local function create_shrub1(o)
-	o = o or {}
+	o.t = t
 	o.tx = 268
 	o.ty = 345
 	o.tw = 103
 	o.th = 48
-	setmetatable(o, object_mt)
+	setmetatable(o, obj_mt)
 	return o
 end
 

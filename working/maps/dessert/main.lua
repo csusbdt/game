@@ -7,7 +7,7 @@ player.x = 200
 player.y = 200
 
 -- Create map objects.
-local of = require('maps.dessert.obj_factory')
+local of = require('maps.dessert.dessert_objs')
 local objs = {}
 objs[#objs + 1] = of.create_bolder1{x =  50, y = 200}
 objs[#objs + 1] = of.create_bolder2{x = 100, y = 200}
