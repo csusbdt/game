@@ -51,13 +51,5 @@ function map_mt:draw()
         render()
 end
 
-local function create(o) 
-	if o.objs == nil then o.objs = {} end
-	setmetatable(o, map_mt)
-	return o
-end
-
-return {
-	create = create
-}
+return map_mt
 

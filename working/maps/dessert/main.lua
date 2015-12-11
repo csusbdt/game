@@ -1,4 +1,5 @@
 local textures  = require('res.textures')
+local map_mt    = require('maps.map_mt')
 
 -- Create player.
 local player  = require('player/wolf/main')
@@ -19,12 +20,13 @@ objs[#objs + 1] = of.create_shrub1{x = 200, y = 400}
 objs[#objs + 1] = require('objs.dot').create{x = 300, y = 300}
 
 -- Create map.
-local map = require('maps.factory').create({
+local map = {
 	bg = textures.image('maps/dessert/sand.png'),
 	w  = window_width  * 3,
 	h  = window_height * 3,
 	objs = objs
-});
+};
+setmetatable(map, map_mt)
 
 -- Create event handlers.
 
