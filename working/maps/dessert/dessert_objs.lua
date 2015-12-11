@@ -2,7 +2,7 @@ local textures = require('res.textures')
 local camera   = require('eng.camera')
 local obj_mt   = require('maps.obj_mt')
 
-local t = textures.image('maps/dessert/objs.png')
+local t = textures.image('maps/dessert/dessert_objs.png')
 
 local function create_bolder1(o)
 	o.t = t

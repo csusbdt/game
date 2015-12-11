@@ -25,6 +25,6 @@ print('path_separator = ' .. path_separator)
 --dofile('screens/title/main.lua')
 --dofile('maps/dessert/main.lua')
 
-local dessert = require('maps/dessert/main')
+local dessert = require('maps/dessert/dessert_map')
 dessert:enter()
 

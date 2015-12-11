@@ -21,7 +21,7 @@ objs[#objs + 1] = require('objs.dot').create{x = 300, y = 300}
 
 -- Create map.
 local map = {
-	bg = textures.image('maps/dessert/sand.png'),
+	bg = textures.image('maps/dessert/dessert_sand.png'),
 	w  = window_width  * 3,
 	h  = window_height * 3,
 	objs = objs
