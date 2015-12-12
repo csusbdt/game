@@ -1,5 +1,5 @@
 local camera = require('eng.camera')
-local hud    = require('hud.main')
+local hud    = require('hud.hud')
 
 local map_mt = {
 }

@@ -2,11 +2,11 @@ local textures = require('res/textures')
 
 local t = textures.image('hud/hud.png')
 
-local function draw()
+local hud = {}
+
+function hud.draw()
 	t:draw(0, window_height - t.h)
 end
 
-return {
-	draw = draw
-}
+return hud
 
