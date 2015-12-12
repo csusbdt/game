@@ -41,13 +41,5 @@ function player_mt:draw()
 	self.anim(x, y)
 end
 
-local function create(o)
-	setmetatable(o, player_mt)
-	o.anim = o.idlefront
-	return o
-end
-
-return {
-	create = create
-}
+return player_mt
 

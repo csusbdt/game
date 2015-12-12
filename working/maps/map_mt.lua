@@ -1,6 +1,5 @@
 local camera = require('eng.camera')
 local hud    = require('hud.main')
-local player = require('player.wolf.main')
 
 local map_mt = {
 }
@@ -16,6 +15,7 @@ function map_mt:exit()
 end
 
 function map_mt:update()
+	local player = self.player
 	player:update()
 	if player.x < 0                 then player.x = 0                 end
 	if player.y < 0                 then player.y = 0                 end
@@ -46,7 +46,7 @@ function map_mt:draw()
 
 	-- Draw everything else.
 	for i = 1, #self.objs do self.objs[i]:draw() end
-        player:draw()
+        self.player:draw()
         hud.draw()
         render()
 end

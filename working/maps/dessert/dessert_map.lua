@@ -2,7 +2,7 @@ local textures  = require('res.textures')
 local map_mt    = require('maps.map_mt')
 
 -- Create player.
-local player  = require('player/wolf/main')
+local player  = require('player/kurock/kurock_player')
 player.x = 200
 player.y = 200
 
@@ -24,7 +24,8 @@ local map = {
 	bg = textures.image('maps/dessert/dessert_sand.png'),
 	w  = window_width  * 3,
 	h  = window_height * 3,
-	objs = objs
+	objs = objs,
+	player = player
 };
 setmetatable(map, map_mt)
 
