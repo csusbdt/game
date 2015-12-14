@@ -1,5 +1,5 @@
-local input     = require('eng.input')
-local camera    = require('eng.camera')
+local input     = require('util.input')
+local camera    = require('util.camera')
 
 local player_mt = {
 	x = 0, 

@@ -1,6 +1,6 @@
 local textures = require('res.textures')
-local camera   = require('eng.camera')
-local obj_mt   = require('eng.obj_mt')
+local camera   = require('util.camera')
+local obj_mt   = require('util.obj_mt')
 
 local t = textures.image('maps/dessert/dessert_objs.png')
 

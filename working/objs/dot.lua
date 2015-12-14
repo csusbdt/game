@@ -1,6 +1,6 @@
 local textures  = require('res.textures')
 local af        = require('util.anim_factory')
-local camera    = require('eng.camera')
+local camera    = require('util.camera')
 
 local s = textures.image('objs/dot.png')
 
