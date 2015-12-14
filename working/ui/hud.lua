@@ -1,6 +1,6 @@
 local textures = require('res/textures')
 
-local t = textures.image('hud/hud.png')
+local t = textures.image('ui/hud.png')
 
 local hud = {}
 
