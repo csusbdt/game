@@ -1,10 +1,10 @@
 ## Patterns
 
-* FACTORY   Modules that have one or more create methods; their names end with _factory.
+* FACTORY   Modules that have one or more create methods. Their names end with _factory.
 * SINGLETON Modules that represent a singel object instance.
-* RESOURCE  Modules that manage the loading and unloading of resources.
+* RESOURCE  Singleton modules that manage the loading and unloading of resources.
             Unloading is done when all references to a resource are garbage collected.
-            Resource modules are singltons.
+* METATABLE Singleton modules that provide access to a metatable.  Their names end with _mt.
 
 ## Resource modules
 
@@ -28,13 +28,13 @@
 
 ## Map modules
 
-* maps.factory       FACTORY     ******************* Create this. **********************
-* maps.dessert.main  SINGLETON   ************** Merge with objs and call it "maps.dessert" ***********
-* maps.dessert.obj_factory  
+* maps.map_mt       
+* maps.dessert.dessert_map 
+* maps.dessert.dessert_objs  
 
 ## Player modules
 
-* players.factory    FACTORY
-* players.wolf       SINGLETON  ************************ Get rid of wolf folder. *****************************
+* player.player_mt
+* player.kurock.kurock_player
 
 
