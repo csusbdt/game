@@ -1,28 +1,30 @@
 ## Patterns
 
-* FACTORY modules have one or more create methods.
-* SINGLETON modules 
+* FACTORY   Modules that have one or more create methods; their names end with _factory.
+* SINGLETON Modules that represent a singel object instance.
+* RESOURCE  Modules that manage the loading and unloading of resources.
+            Unloading is done when all references to a resource are garbage collected.
+            Resource modules are singltons.
 
 ## Resource modules
 
-* res.textures  FACTORY
-* res.fonts     FACTORY
-* res.music     FACTORY
-* res.sounds    FACTORY
-* res.waves     FACTORY
+* res.textures
+* res.fonts
+* res.music
+* res.sounds
+* res.waves
 
 ## Utility modules
 
+* util.savefile
+* util.camera
+* util.input
 * util.anim_factory  
-
-* util.savefile  SINGLETON   ************* Rename "eng" to "util". *****************
-* util.camera    SINGLETON
-* util.input     SINGLETON
-* util.buttons   FACTORY
+* util.button_factory
 
 ## UI modules
 
-* hud.main  ************* Change to ui.hud ******************
+* ui.hud
 
 ## Map modules
 

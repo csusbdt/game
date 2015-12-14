@@ -1,12 +1,6 @@
-_ENV = {
-	require = require,
-	setmetatable = setmetatable,
-	error = error
-}
+local textures = require('res.textures')
 
-textures = require('res.textures')
-
-button_mt = {}
+local button_mt = {}
 
 button_mt.__index = button_mt;
 
