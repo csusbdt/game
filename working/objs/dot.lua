@@ -1,15 +1,17 @@
 local textures  = require('res.textures')
-local anim      = require('eng.anim')
+local af        = require('util.anim_factory')
 local camera    = require('eng.camera')
 
-local sprite = textures.image('objs/dot.png')
+local s = textures.image('objs/dot.png')
 
-local idle = anim.create()
-idle:addframe{ sprite = sprite }
-idle:addframe{ sprite = sprite, x =  64, t = 8 }
-idle:addframe{ sprite = sprite, x = 128, t = 8 }
-idle:addframe{ sprite = sprite, x = 192, t = 8 }
-idle:addframe{ sprite = sprite, x = 128, t = 8 }
+local idle = af.create({
+	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
+	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
+	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
+	{ s = s, x = 192, y =   0, w = 64, h = 64, t = 8 },
+	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
+})
+
 local anim = idle
 
 local dot_mt = {
@@ -18,7 +20,7 @@ local dot_mt = {
 }
 dot_mt.__index = dot_mt
 
-function dot_mt:draw()
+function dot_mt:draw() 
 	local x, y = camera.screen(self.x, self.y)
 	self.loop(x, y)
 end
