@@ -1,4 +1,3 @@
-local textures = require('res.textures')
 local camera   = require('util.camera')
 
 local obj_mt = {}

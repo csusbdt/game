@@ -1,5 +1,6 @@
 local textures  = require('res.textures')
 local map_mt    = require('maps.map_mt')
+local thorn_animal_factory = require('maps.dessert.thorn_animal_factory')
 
 -- Create player.
 local player  = require('player/kurock/kurock_player')
@@ -18,6 +19,8 @@ objs[#objs + 1] = of.create_cactus1{x =  50, y = 400}
 objs[#objs + 1] = of.create_cactus2{x = 100, y = 400}
 objs[#objs + 1] = of.create_shrub1{x = 200, y = 400}
 objs[#objs + 1] = require('objs.dot').create{x = 300, y = 300}
+
+objs[#objs + 1] = thorn_animal_factory.create{x = 400, y = 300}
 
 -- Create map.
 local map = {
