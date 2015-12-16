@@ -1,31 +1,33 @@
 local textures  = require('res.textures')
-local anim_mt   = require('util.anim_mt')
+local af        = require('util.anim_factory')
+local player_mt = require('player.player_mt')
 
-local thorn_animal_mt = {}
-thorn_animal_mt.__index = thorn_animal_mt
-setmetatable(thorn_animal_mt, anim_mt)
+local kurock_player_mt = {}
 
-local s = textures.image('maps/dessert/thorn_animal.png')
+local s = textures.image('player/kurock/kurock-wolf.png')
 
-thorn_animal_mt.anims = {}
+kurock_player_mt.anims = {}
+kurock_player_mt.__index = kurock_player_mt
 
-thorn_animal_mt.anims['idledown'] = {
+setmetatable(kurock_player_mt, player_mt)
+
+kurock_player_mt.anims['idledown'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['idleup'] = {
+kurock_player_mt.anims['idleup'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['idleleft'] = {
+kurock_player_mt.anims['idleleft'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['idleright'] = {
+kurock_player_mt.anims['idleright'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['walkdown'] = {
+kurock_player_mt.anims['walkdown'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
@@ -33,7 +35,7 @@ thorn_animal_mt.anims['walkdown'] = {
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['walkup'] = {
+kurock_player_mt.anims['walkup'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
@@ -41,7 +43,7 @@ thorn_animal_mt.anims['walkup'] = {
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['walkleft'] = {
+kurock_player_mt.anims['walkleft'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
@@ -49,7 +51,7 @@ thorn_animal_mt.anims['walkleft'] = {
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
 }
 
-thorn_animal_mt.anims['walkright'] = {
+kurock_player_mt.anims['walkright'] = {
 	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
@@ -57,13 +59,5 @@ thorn_animal_mt.anims['walkright'] = {
 	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
 }
 
-local function create(o)
-	setmetatable(o, thorn_animal_mt)
-	o:loop('idledown')
-	return o
-end
-
-return {
-	create = create
-}
+return kurock_player_mt
 

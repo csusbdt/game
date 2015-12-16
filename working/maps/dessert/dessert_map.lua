@@ -3,9 +3,7 @@ local map_mt    = require('maps.map_mt')
 local thorn_animal_factory = require('maps.dessert.thorn_animal_factory')
 
 -- Create player.
-local player  = require('player/kurock/kurock_player')
-player.x = 200
-player.y = 200
+local player  = require('player/kurock/kurock_player_factory').create{x = 200, y = 200}
 
 -- Create map objects.
 local of = require('maps.dessert.dessert_objs')
