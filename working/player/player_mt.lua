@@ -22,27 +22,22 @@ function player_mt:update()
 	if input.is_a_key_down() and not input.is_d_key_down() then dx = -self.x_speed end
 	if input.is_d_key_down() and not input.is_a_key_down() then dx =  self.x_speed end
 	if dx == 0 and dy == 0 then
-		if     self.anim == 'walkleft'  then self.anim = 'idleleft'
-		elseif self.anim == 'walkright' then self.anim = 'idleright'
-		elseif self.anim == 'walkup'    then self.anim = 'idleup'
-		elseif self.anim == 'walkdown'  then self.anim = 'idledown'  end
+		if     self.anim == 'walkleft'  then self:loop('idleleft')
+		elseif self.anim == 'walkright' then self:loop('idleright')
+		elseif self.anim == 'walkup'    then self:loop('idleup')
+		elseif self.anim == 'walkdown'  then self:loop('idledown')  end
 	end
-	if     dx < 0                      then self.anim = 'walkleft'
-	elseif dx > 0                      then self.anim = 'walkright'
-	elseif dy < 0                      then self.anim = 'walkup'
-	elseif dy > 0                      then self.anim = 'walkdown'
-	elseif self.anim == 'walkleft'     then self.anim = 'idleleft'
-	elseif self.anim == 'walkright'    then self.anim = 'idleright'
-	elseif self.anim == 'walkback'     then self.anim = 'idleup'
-	elseif self.anim == 'walkfront'    then self.anim = 'idledown'  end
+	if     dx < 0                      then self:loop('walkleft')
+	elseif dx > 0                      then self:loop('walkright')
+	elseif dy < 0                      then self:loop('walkup')
+	elseif dy > 0                      then self:loop('walkdown')
+	elseif self.anim == 'walkleft'     then self:loop('idleleft')
+	elseif self.anim == 'walkright'    then self:loop('idleright')
+	elseif self.anim == 'walkback'     then self:loop('idleup')
+	elseif self.anim == 'walkfront'    then self:loop('idledown')  end
 	self.y = self.y + dy
 	self.x = self.x + dx
 end
-
---function player_mt:draw()
---	local x, y = camera.screen(self.x, self.y)
---	self.anim(x, y)
---end
 
 return player_mt
 

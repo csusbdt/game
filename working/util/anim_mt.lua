@@ -19,6 +19,7 @@ anim_mt.__index = anim_mt
 function anim_mt:draw() 
 	local x, y = camera.screen(self.x, self.y)
 	local frames = self.anims[self.anim]
+	self.anim_ticks_remaining = self.anim_ticks_remaining - 1
 	if self.anim_ticks_remaining < 1 then
 		self.anim_frame_index = self.anim_frame_index + 1
 		if self.anim_frame_index > #frames then self.anim_frame_index = 1 end
@@ -29,6 +30,7 @@ function anim_mt:draw()
 end
 
 function anim_mt:loop(anim) 
+	if self.anim == anim then return end
 	self.anim = anim
 	local frames = self.anims[anim]
 	self.anim_frame_index     = 1
