@@ -10,51 +10,39 @@ local s = textures.image('maps/dessert/thorn_animal.png')
 thorn_animal_mt.anims = {}
 
 thorn_animal_mt.anims['idledown'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 360, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['idleup'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 240, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['idleleft'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y =   0, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['idleright'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 120, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['walkdown'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 192, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 360, w = 120, h = 120, t = 10 },
+	{ s = s, x = 120, y = 360, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['walkup'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 192, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 240, w = 120, h = 120, t = 10 },
+	{ s = s, x = 120, y = 240, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['walkleft'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 192, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y =   0, w = 120, h = 120, t = 10 },
+	{ s = s, x = 120, y =   0, w = 120, h = 120, t = 10 }
 }
 
 thorn_animal_mt.anims['walkright'] = {
-	{ s = s, x =   0, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x =  64, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 192, y =   0, w = 64, h = 64, t = 8 },
-	{ s = s, x = 128, y =   0, w = 64, h = 64, t = 8 }
+	{ s = s, x =   0, y = 120, w = 120, h = 120, t = 10 },
+	{ s = s, x = 120, y = 120, w = 120, h = 120, t = 10 }
 }
 
 return thorn_animal_mt
