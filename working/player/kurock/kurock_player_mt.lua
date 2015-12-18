@@ -11,6 +11,9 @@ kurock_player_mt.__index = kurock_player_mt
 
 setmetatable(kurock_player_mt, player_mt)
 
+kurock_player_mt.w = 80
+kurock_player_mt.h = 120
+
 kurock_player_mt.anims['idledown'] = {
 	{ s = s, x =   0, y =   0, w = 80, h = 120, t = 8 }
 }

@@ -3,12 +3,13 @@ local map_mt    = require('maps.map_mt')
 local thorn_animal_factory = require('maps.dessert.thorn_animal_factory')
 
 -- Create player.
-local player  = require('player/kurock/kurock_player_factory').create{x = 200, y = 200}
+local player  = require('player/kurock/kurock_player_factory').create{x = 0, y = 0}
 
 -- Create map objects.
 local of = require('maps.dessert.dessert_objs')
 local objs = {}
-objs[#objs + 1] = of.create_bolder1{x =  50, y = 200}
+objs[#objs + 1] = of.create_bolder1{x = 250, y = 400}
+--[[
 objs[#objs + 1] = of.create_bolder2{x = 100, y = 200}
 objs[#objs + 1] = of.create_bolder3{x = 200, y = 200}
 objs[#objs + 1] = of.create_bolder4{x = 300, y = 200}
@@ -19,6 +20,7 @@ objs[#objs + 1] = of.create_shrub1{x = 200, y = 400}
 objs[#objs + 1] = require('objs.dot').create{x = 300, y = 300}
 
 objs[#objs + 1] = thorn_animal_factory.create{x = 400, y = 300}
+--]]
 
 -- Create map.
 local map = {

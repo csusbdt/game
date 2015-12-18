@@ -30,19 +30,14 @@ function map_mt:draw()
 	render_clear()
 
 	-- Draw background.
-	local t = self.bg
+	local t    = self.bg
 	local left = math.modf(camera.x / t.w) * t.w
-	local top  = math.modf(camera.y / t.h) * t.h
+	local top  = math.modf(camera.y / t.h) * t.h + t.h
 	local x, y = camera.screen(left, top)
-	t:draw(x - t.w, y - t.h)
-	t:draw(x - t.w, y)
-	t:draw(x - t.w, y + t.h)
-	t:draw(x      , y - t.h)
 	t:draw(x      , y)
-	t:draw(x      , y + t.h)
-	t:draw(x + t.w, y - t.h)
+	t:draw(x      , y - t.h)
 	t:draw(x + t.w, y)
-	t:draw(x + t.w, y + t.h)
+	t:draw(x + t.w, y - t.h)
 
 	-- Draw everything else.
 	for i = 1, #self.objs do self.objs[i]:draw() end

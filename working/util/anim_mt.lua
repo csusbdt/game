@@ -1,20 +1,18 @@
---
--- This will replace anim factory!!!!!  OR obj_mt?
---
-
 --[[
 Animation variables:
 	anim                 -- string name of the animation, such as 'idleup', 'idledown', etc.
-	anim_ticks_remaining -- the number of calls to draw before the end of the frame
-	anim_frame_index     -- the frame index for the given animation
-
-Animation names: idleup, idledown, idleleft, idleright, up, down, left, right
+	anims                -- table of animations, where each animation is a sequence of frames.
+	anim_ticks_remaining -- the number of calls to draw before the end of the frame.
+	anim_frame_index     -- the frame index for the given animation.
 --]]
 
 local camera = require('util.camera')
+local obj_mt = require('util.obj_mt')
 
 local anim_mt = {}
 anim_mt.__index = anim_mt
+
+setmetatable(anim_mt, obj_mt)
 
 function anim_mt:draw() 
 	local x, y = camera.screen(self.x, self.y)
@@ -26,7 +24,7 @@ function anim_mt:draw()
 		self.anim_ticks_remaining = frames[self.anim_frame_index].t
 	end
 	local frame = frames[self.anim_frame_index]
-	frame.s:draw(frame.x, frame.y, frame.w, frame.h, x, y)
+	frame.s:draw(frame.x, frame.y, frame.w, frame.h, x, y - frame.h)
 end
 
 function anim_mt:loop(anim) 
