@@ -23,7 +23,7 @@ void register_texture_functions	(lua_State * L);
 void register_audio_functions	(lua_State * L);
 void register_font_functions	(lua_State * L);
 
-static void register_global_functions(lua_State * L) {
+static void register_functions(lua_State * L) {
 	register_util_functions(L);
 	register_texture_functions(L);
 	register_audio_functions(L);
@@ -227,7 +227,7 @@ static void init() {
 	if (TTF_Init()) fatal(TTF_GetError());
 
 	SDL_assert(lua_gettop(L) == 0);
-	register_global_functions(L);
+	register_functions(L);
 	SDL_assert(lua_gettop(L) == 0);
 
 	if (luaL_dofile(L, resource_path("init.lua"))) fatal(luaL_checkstring(L, -1));
