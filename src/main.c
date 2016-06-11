@@ -20,13 +20,13 @@ static lua_State	* L;
 
 void register_util_functions	(lua_State * L);
 void register_texture_functions	(lua_State * L);
-void register_audio_functions	(lua_State * L);
+//void register_audio_functions	(lua_State * L);
 void register_font_functions	(lua_State * L);
 
 static void register_functions(lua_State * L) {
 	register_util_functions(L);
 	register_texture_functions(L);
-	register_audio_functions(L);
+//	register_audio_functions(L);
 	register_font_functions(L);
 }
 
@@ -225,6 +225,9 @@ static void init() {
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) fatal(IMG_GetError());
 
 	if (TTF_Init()) fatal(TTF_GetError());
+
+// The following doesn't work.  I get a dynamic linkage error.
+//	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0) fatal(Mix_GetError());
 
 	SDL_assert(lua_gettop(L) == 0);
 	register_functions(L);

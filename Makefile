@@ -41,6 +41,7 @@ working/a.out : src/*
 		-l lua                         \
 		-l SDL2_ttf                    \
 		-l SDL2_image                  \
+		-l SDL2_mixer                  \
 		src/*.c
 
 test : working/a.out

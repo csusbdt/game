@@ -44,4 +44,11 @@ ending with "_objs".
 * player.player_mt
 * player.kurock.kurock_player
 
+## OS X
+
+After installing libogg, I needed to build libvorbis with the following:
+
+~~~
+./configure  --with-ogg-libraries=/usr/local/lib --with-ogg-includes=/usr/local/include
+~~~
 
