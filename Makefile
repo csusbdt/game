@@ -10,6 +10,7 @@
 .PHONY : osx
 .PHONY : test
 .PHONY : pkg
+.PHONY : lua
 
 SDL_FLAGS := $(shell sdl2-config --libs --cflags)
 
@@ -31,7 +32,7 @@ clean :
 
 osx : working/a.out
 
-working/a.out : src/*
+working/a.out : src/* 
 	clang 	-o working/a.out               \
 		`sdl2-config --libs --cflags`  \
 		-D SDL_ASSERT_LEVEL=2          \
@@ -41,8 +42,18 @@ working/a.out : src/*
 		-l lua                         \
 		-l SDL2_ttf                    \
 		-l SDL2_image                  \
-		-l SDL2_mixer                  \
 		src/*.c
+
+lua : 
+	mkdir lua
+	mkdir lua/include
+	make -C lua-5.3.4 macosx 
+	cp lua-5.3.4/src/liblua.a   lua/
+	cp lua-5.3.4/src/lua.h      lua/include/
+	cp lua-5.3.4/src/lualib.h   lua/include/
+	cp lua-5.3.4/src/luaconf.h  lua/include/
+	cp lua-5.3.4/src/lauxlib.h  lua/include/
+	make -C lua-5.3.4 clean
 
 test : working/a.out
 	cd working; ./a.out
