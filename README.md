@@ -5,7 +5,7 @@
 | SINGLETON | Modules that represent single object instances. |
 | FACTORY   | Modules that have one or more create methods. Their names end with __\_factory__.|
 | RESOURCE  | Singleton modules that manage the loading and unloading of resources. Unloading is done when all references to a resource are garbage collected. Resource modules are factories that don't end with _factory.  However, they are all located under the path __res.*__ |
-| METATABLE | Singleton modules that provide access to a metatable.  Their names end with __/_mt__. The purpose of metatables is to create objects directly, without the use of a factory. |
+| METATABLE | Singleton modules that provide access to a metatable.  Their names end with __\_mt__. The purpose of metatables is to create objects directly, without the use of a factory. |
 
 ## Resource modules
 
