@@ -280,7 +280,7 @@ static int texture_alpha_mod(lua_State * L) {
 	}
 	texture = *ud;
 	if (texture == NULL) {
-		luaL_error(L, "texture_blendmode_blend called with null value");
+		luaL_error(L, "texture_alpha_mod called with null value");
 	}
 	alpha = luaL_checkinteger(L, 2);
 	if (alpha < 0 || alpha > 255) {
